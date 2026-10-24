@@ -4,16 +4,12 @@ Record each meaningful project change during the event, newest first. Update thi
 
 ## Event build log
 
-No project implementation has been recorded yet. Replace this sentence with entries as you build:
+## 2026-10-24T21:00:00+05:30 — Imported Tancode VS Code extension scaffold and Milestone 1
 
-```text
-## <actual timestamp> — <short change title>
-
-- Changed: <feature or files changed>
-- Why: <reason for the change>
-- Validation: <commands or manual checks actually run, with results>
-- Limitations: <known issues or "None identified in these checks">
-```
+- Changed: Added the Tancode project into this template repository: `package.json`, `package-lock.json`, `tsconfig.json`, `src/extension.ts`, `src/analysis.ts`, `src/explanationPanel.ts`, `scripts/preflight.js`, `.npmrc`, `.vscode/launch.json`, `.vscode/tasks.json`, `.vscodeignore`, `.env.example`; merged Tancode ignore rules into `.gitignore`; filled the README project overview and run steps.
+- Why: Consolidate the Tancode project (developed in `fidhaaann/Tancode-`) into the hackathon template repository so this repo is the project workspace. Note: the extension predates the event window — imported post-event per repository owner request, not built from scratch at the event.
+- Validation: `npm ci` clean install, `npm run compile`, `npm run typecheck` all pass on Node 20; analyzer smoke-tested on sample TypeScript/Python documents. Interactive Extension Development Host (F5) test not run — no desktop VS Code in the build environment.
+- Limitations: Rule-based explanations only (no AI). F5/webview verification and `SUBMISSION.md` participant details remain for the repository owner.
 
 ## Template setup — 10 October 2026
 

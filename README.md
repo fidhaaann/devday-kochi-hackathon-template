@@ -31,26 +31,24 @@ This template has no application code or required technology stack. The document
 
 ## Project overview — complete during the event
 
-- **Project name:** TODO
-- **Short description:** TODO — what it does, who it helps, and why it matters.
+- **Project name:** Tancode
+- **Short description:** A lightweight, local-first VS Code extension that explains the active source file — a concise summary, key declarations, and expandable detail — to help developers learn technical concepts while vibe coding without spending coding-agent credits. Imported from [fidhaaann/Tancode-](https://github.com/fidhaaann/Tancode-).
 - **Team:** TODO — participant names and GitHub handles; maximum 4 members.
-- **Working demo:** TODO — link or local demo instructions.
-- **Technology stack:** TODO
+- **Working demo:** Local demo via the VS Code Extension Development Host — see "Run the project" below.
+- **Technology stack:** TypeScript, VS Code Extension API (native webview panel), npm, `tsc`. No runtime dependencies; dev-only `typescript`, `@types/vscode`, `@types/node`.
 
 ### Run the project
 
-Replace these placeholders with commands that actually work for your project:
-
-1. Prerequisites and versions: TODO
-2. Dependency installation: TODO
-3. Environment setup: TODO — list required variable names and provide a sanitized `.env.example` if needed.
-4. Start the project: TODO
-5. Run checks or tests: TODO
+1. Prerequisites and versions: Node.js 20+ and desktop VS Code 1.90+. `.npmrc` sets `engine-strict=true`, so an older Node fails fast.
+2. Dependency installation: `npm ci` from the repository root.
+3. Environment setup: none required. `.env.example` documents placeholder variables (`TANCODE_MODEL_ENDPOINT`, `TANCODE_MODEL`) reserved for a future local model runtime — no code reads them; copy to `.env` only if experimenting.
+4. Start the project: `npm run compile`, then press F5 in VS Code to launch the Extension Development Host. In that window, open a source file and run `Tancode: Explain Current File` from the Command Palette. The `Tancode` panel opens beside the editor and follows the active tab.
+5. Run checks or tests: `npm run typecheck`. `npm run watch` rebuilds on change.
 
 ### Current status
 
-- Working features: TODO
-- Known limitations: TODO
-- Libraries, APIs, and public datasets used: TODO — include source links and applicable attribution.
+- Working features: `Tancode: Explain Current File` opens a `Tancode` webview panel beside the editor; it displays the active file's name/language, a generated summary, detected declarations (functions, classes, interfaces, components) for 15 languages, imports, and an expandable "More detail" section. It updates on tab switches and re-analyzes on edits. `Tancode: Hello World` remains as a sanity check.
+- Known limitations: explanations are deterministic rule-based heuristics (line-based declaration patterns), not AI — they identify structures, they don't truly interpret behavior. Interactive webview verification on a desktop VS Code is pending; only compile/typecheck were run in the build environment. No AI model, selected-code explanations, or error explanations yet (roadmap).
+- Libraries, APIs, and public datasets used: only the VS Code Extension API (`@types/vscode`); no external services.
 
 See [AI_USAGE.md](AI_USAGE.md) for AI assistance and [CHANGELOG.md](CHANGELOG.md) for the development record.

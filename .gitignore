@@ -11,6 +11,7 @@ node_modules/
 .next/
 dist/
 build/
+out/
 coverage/
 .venv/
 venv/
@@ -21,4 +22,18 @@ __pycache__/
 Thumbs.db
 *.log
 
-# Add entries appropriate to your chosen language or framework.
+# VS Code extension artifacts
+*.vsix
+.vscode-test/
+
+# Temporary and editor files
+tmp/
+temp/
+*.tmp
+.idea/
+*.swp
+*.swo
+*~
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
